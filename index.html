@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="ttt">Tic-Tac-Toe</h1>
+    <div class="player-inputs" id="playerInputs">
+      <label for="playerXNameInput">Player X Name:</label>
+      <input type="text" id="playerXNameInput" placeholder="Player X">
+      <label for="playerONameInput">Player O Name:</label>
+      <input type="text" id="playerONameInput" placeholder="Player O">
+      <br>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+    <div class="scoreboard" id="scoreboard" style="display: none;">
+      <div>
+        <span id="playerXName">Player X</span>: <span id="playerXScore">0</span>
+      </div>
+      <div>
+        <span id="playerOName">Player O</span>: <span id="playerOScore">0</span>
+      </div>
+    </div>
+    <div class="settings">
+      <label for="difficulty">Difficulty Level:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <label for="theme">Theme:</label>
+      <select id="theme" onchange="setTheme()">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="colorful">Colorful</option>
+      </select>
+      <button onclick="toggleSinglePlayer()">Toggle Single Player</button>
+      <div id="timer">00:00</div>
+    </div>
+    <div id="game-board" class="game-board">
+      <div class="cell" onclick="handleClick(0)"></div>
+      <div class="cell" onclick="handleClick(1)"></div>
+      <div class="cell" onclick="handleClick(2)"></div>
+      <div class="cell" onclick="handleClick(3)"></div>
+      <div class="cell" onclick="handleClick(4)"></div>
+      <div class="cell" onclick="handleClick(5)"></div>
+      <div class="cell" onclick="handleClick(6)"></div>
+      <div class="cell" onclick="handleClick(7)"></div>
+      <div class="cell" onclick="handleClick(8)"></div>
+    </div>
+    <button onclick="resetGame()">Reset Game</button>
+    <button onclick="undoMove()">Undo Move</button>
+  </div>
+
+  <audio id="clickSound" src="sounds/click.mp3"></audio>
+  <audio id="winSound" src="sounds/win.mp3"></audio>
+  <audio id="drawSound" src="sounds/draw.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
